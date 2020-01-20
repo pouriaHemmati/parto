@@ -10,21 +10,23 @@
     android:background="@color/colorWhite"
     >
 
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/radius_layout"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/guideline1"
-        android:background="@color/color_login"
-        >
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:layout_gravity="center"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/ic_login">
 
@@ -32,8 +34,7 @@
 
     </LinearLayout>
 
-
-   <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
        android:id="@+id/cardView_login"
        android:layout_width="0dp"
        android:layout_height="0dp"

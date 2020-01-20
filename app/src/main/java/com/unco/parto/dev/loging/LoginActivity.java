@@ -111,6 +111,7 @@ public class LoginActivity extends BaseAppCompatActivity implements IloginView {
     @OnClick(R.id.btn_lets_go_login)
     public void btn_lets_go_login() {
         startActivity(ListApi.class);
+        finish();
     }
 
     // response webService

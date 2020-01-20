@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.unco.parto.R;
@@ -133,18 +134,25 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , Ilo
 
     // listener recycler
     private void recycler() {
-        if (!FirstSearch){
-            this.jListApiArrayListLast.addAll(jListApiArrayList);
-            listApi_recyclerAdapter.notifyDataSetChanged();
-        } else {
-            jListApiArrayListLast = jListApiArrayList;
-            modelItemListApi = new ModelItemListApi(jListApiArrayListLast);
-            recyclerView = findViewById(R.id.recycler_view);
-            listApi_recyclerAdapter = new ListApi_RecyclerAdapter(BaseActivity.getContext() , modelItemListApi , this);
-            recyclerView.setLayoutManager(new LinearLayoutManager(BaseActivity.getContext() , LinearLayoutManager.VERTICAL , false));
-            recyclerView.setAdapter(listApi_recyclerAdapter);
-            FirstSearch = false;
-        }
+         runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if (!FirstSearch){
+                    jListApiArrayListLast.addAll(jListApiArrayList);
+                    listApi_recyclerAdapter.notifyDataSetChanged();
+                } else {
+                    jListApiArrayListLast = jListApiArrayList;
+                    modelItemListApi = new ModelItemListApi(jListApiArrayListLast);
+                    recyclerView = findViewById(R.id.recycler_view);
+                    listApi_recyclerAdapter = new ListApi_RecyclerAdapter(BaseActivity.getContext() , modelItemListApi , ListApi.this);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(BaseActivity.getContext() , LinearLayoutManager.VERTICAL , false));
+                    recyclerView.setAdapter(listApi_recyclerAdapter);
+                    FirstSearch = false;
+                }
+            }
+        });
+
 
     }
 
