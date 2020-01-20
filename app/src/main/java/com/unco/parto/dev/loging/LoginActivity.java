@@ -17,6 +17,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.unco.parto.R;
 import com.unco.parto.base.BaseActivity;
 import com.unco.parto.base.BaseAppCompatActivity;
+import com.unco.parto.dev.list_api.ListApi;
 import com.unco.parto.model.JLogin;
 import com.unco.parto.utilis.SharedPreferences;
 import com.unco.parto.widgets.CustomToastMasseg;
@@ -105,7 +106,7 @@ public class LoginActivity extends BaseAppCompatActivity implements IloginView {
 
     @OnClick(R.id.btn_lets_go_login)
     public void btn_lets_go_login() {
-//        startActivity(ListApi.class);
+        startActivity(ListApi.class);
     }
 
     // response webService

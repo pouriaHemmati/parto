@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
+
 public class MyMediumTextView extends AppCompatTextView {
 
 

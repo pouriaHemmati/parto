@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_courses_search"
+    android:layoutDirection="rtl"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="10dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        app:shape_roundRect_topRightRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ece8e7"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_125sdp"
+                android:background="@drawable/radius_layout_list_api_recycler">
+
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/lay_img_list_api_recycler"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/logo_courses_list_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        app:layout_constraintDimensionRatio="18:11.25" />
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                <com.unco.parto.widgets.MyMediumTextView
+                    android:id="@+id/txt_name_list_api_recycler"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="asdasdasdasdasdas"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginStart="5dp"
+                    android:textSize="@dimen/_13sdp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/lay_img_list_api_recycler"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.unco.parto.widgets.MyMediumTextView
+                    android:id="@+id/txt_rate_list_api_recycler"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="4.5"
+                    app:layout_constraintBottom_toTopOf="@+id/simpleRatingBar"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name_list_api_recycler"
+                    app:layout_constraintLeft_toRightOf="@+id/lay_img_list_api_recycler"
+                    android:textColor="@color/back_login"
+                    android:textSize="@dimen/_9sdp"
+                    />
+
+                <com.willy.ratingbar.ScaleRatingBar
+                    android:id="@+id/simpleRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/lay_img_list_api_recycler"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_rate_list_api_recycler"
+                    app:layout_constraintBottom_toBottomOf="@+id/lay_img_list_api_recycler"
+                    app:srb_numStars="5"
+                    app:srb_minimumStars="1"
+                    app:srb_rating="2"
+                    app:srb_starWidth="@dimen/_10sdp"
+                    app:srb_starHeight="@dimen/_10sdp"
+                    app:srb_starPadding="@dimen/_5sdp"
+                    app:srb_stepSize="0.5"
+                    app:srb_isIndicator="false"
+                    app:srb_clickable="false"
+                    app:srb_scrollable="true"
+                    app:srb_clearRatingEnabled="true"
+                    app:srb_drawableEmpty="@drawable/empty"
+                    app:srb_drawableFilled="@drawable/filled">
+                </com.willy.ratingbar.ScaleRatingBar>
+
+
+
+                <com.unco.parto.widgets.MyMediumTextView
+                    android:id="@+id/txt_type_list_api_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/lay_img_list_api_recycler"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/back_login"
+                    android:text="sadasdasdasdasdasdasddasdasdasdasdasdasdas"
+                    android:textSize="@dimen/_9sdp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </LinearLayout>
+
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+
+</androidx.cardview.widget.CardView>

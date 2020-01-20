@@ -27,6 +27,9 @@
         <activity
             android:name=".dev.loging.LoginActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".dev.list_api.ListApi"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
