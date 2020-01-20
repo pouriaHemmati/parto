@@ -5,7 +5,7 @@ public class JListApi {
     private String name;
     private String picture;
     private String type;
-    private long score;
+    private double score;
 
     public int getId() {
         return id;
@@ -39,11 +39,11 @@ public class JListApi {
         this.type = type;
     }
 
-    public long getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(long score) {
+    public void setScore(double score) {
         this.score = score;
     }
 }
