@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">parto</string>
+    <string name="username">User Name</string>
+    <string name="passwoed">Password</string>
+    <string name="btn_login">Enter</string>
+    <string name="txt_username_details_login">User Name</string>
+    <string name="nameAndFamily">Name And FamilyName</string>
+    <string name="btn_letsGo">Let\'s Go</string>
 </resources>

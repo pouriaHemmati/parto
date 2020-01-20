@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/parent_lay_login"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        android:background="@color/color_login"
+        >
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/ic_login">
+
+        </ImageView>
+
+    </LinearLayout>
+
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardView_login"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:animateLayoutChanges="true"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/guideline2"
+       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginLeft="@dimen/_20sdp"
+       android:layout_marginRight="@dimen/_20sdp"
+       >
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+          <com.unco.partobita.widgets.MyMediumTextView
+              android:id="@+id/txt_username_login"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginTop="@dimen/_30sdp"
+              android:layout_marginLeft="@dimen/_10sdp"
+              android:text="@string/username"
+              />
+
+
+           <EditText
+               android:id="@+id/edt_username_login"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txt_username_login"
+               android:layout_marginLeft="@dimen/_10sdp"
+               android:layout_marginRight="@dimen/_10sdp"
+               android:layout_marginTop="@dimen/_5sdp"
+               android:textSize="@dimen/_13sdp"
+               >
+
+           </EditText>
+
+
+           <com.unco.partobita.widgets.MyMediumTextView
+               android:id="@+id/txt_password_login"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/edt_username_login"
+               android:layout_marginTop="@dimen/_30sdp"
+               android:layout_marginLeft="@dimen/_10sdp"
+               android:text="@string/passwoed"
+               />
+
+           <EditText
+               android:id="@+id/edt_password_login"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txt_password_login"
+               android:layout_marginLeft="@dimen/_10sdp"
+               android:layout_marginRight="@dimen/_10sdp"
+               android:layout_marginTop="@dimen/_5sdp"
+               android:inputType="textPassword"
+               android:textSize="@dimen/_13sdp"
+               >
+
+           </EditText>
+
+
+           <com.airbnb.lottie.LottieAnimationView
+               android:id="@+id/loading_login"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="@dimen/_40sdp"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/edt_password_login"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:lottie_autoPlay="true"
+               app:lottie_loop="true"
+               android:visibility="gone"
+               app:lottie_fileName="loading.json"/>
+
+           <com.unco.partobita.widgets.MyMediumButton
+               android:id="@+id/btn_enter_login"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/edt_password_login"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:background="@drawable/shape_btn_login"
+               android:text="@string/btn_login"
+               android:textColor="@color/colorWhite"
+               >
+
+           </com.unco.partobita.widgets.MyMediumButton>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.cardview.widget.CardView>
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardView_details_login"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:animateLayoutChanges="true"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/guideline2"
+       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginLeft="@dimen/_20sdp"
+       android:layout_marginRight="@dimen/_20sdp"
+       android:visibility="gone"
+       >
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+
+
+        <com.unco.partobita.widgets.MyBoldTextView
+            android:id="@+id/txt_username_details_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/back_login"
+            android:text="@string/txt_username_details_login"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+           <com.unco.partobita.widgets.MyBoldTextView
+            android:id="@+id/txt_username_show_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_username_details_login"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+           <com.unco.partobita.widgets.MyBoldTextView
+               android:id="@+id/txt_name_family_details_login"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txt_username_show_login"
+               android:textSize="@dimen/_13sdp"
+               android:textColor="@color/back_login"
+               android:text="@string/nameAndFamily"
+               android:layout_marginTop="@dimen/_20sdp"/>
+
+           <com.unco.partobita.widgets.MyBoldTextView
+               android:id="@+id/txt_name_family_show_login"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txt_name_family_details_login"
+               android:textSize="@dimen/_15sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_marginTop="@dimen/_10sdp"/>
+
+
+           <com.unco.partobita.widgets.MyMediumButton
+               android:id="@+id/btn_lets_go_login"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txt_name_family_show_login"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:background="@drawable/shape_btn_login"
+               android:text="@string/btn_letsGo"
+               android:textColor="@color/colorWhite"
+               >
+
+           </com.unco.partobita.widgets.MyMediumButton>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
