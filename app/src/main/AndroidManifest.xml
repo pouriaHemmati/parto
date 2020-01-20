@@ -30,6 +30,9 @@
         <activity
             android:name=".dev.list_api.ListApi"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".dev.personal.Personal"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

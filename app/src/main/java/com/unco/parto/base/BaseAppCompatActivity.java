@@ -116,7 +116,11 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     }
 
 
-
+    public void startActivityBundle(Class<?> otherActivityClass , String keyValue ,  String bundle){
+        Intent i = new Intent(BaseActivity.getCurrentActivity(), otherActivityClass);
+        i.putExtra(keyValue, bundle);
+        startActivity(i);
+    }
 
 
 

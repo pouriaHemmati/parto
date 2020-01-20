@@ -16,6 +16,7 @@ import com.unco.parto.dev.list_api.adapter.OnItemClickListener;
 import com.unco.parto.dev.loging.IloginView;
 import com.unco.parto.dev.loging.LoginInteractor;
 import com.unco.parto.dev.loging.LoginPeresenter;
+import com.unco.parto.dev.personal.Personal;
 import com.unco.parto.model.JListApi;
 import com.unco.parto.model.JLogin;
 import com.unco.parto.utilis.SharedPreferences;
@@ -85,7 +86,7 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , Ilo
         jListApiArrayList = jListApi;
         if (jListApiArrayList.size() == 0){
             noList = true;
-            CustomToastMasseg.showToastMessage(BaseActivity.getContext(),  "محصولی برای نمایش وجود ندارد");
+            CustomToastMasseg.showToastMessage(BaseActivity.getContext(),  "محصولی دیگری برای نمایش وجود ندارد");
         } else {
             noList = false;
             recycler();
@@ -127,7 +128,7 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , Ilo
     // click listener
     @Override
     public void onClickList(int id) {
-
+        startActivityBundle(Personal.class , "id" , String.valueOf(id));
     }
 
     // listener recycler
