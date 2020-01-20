@@ -5,7 +5,7 @@ public class JListApi {
     private String name;
     private String picture;
     private String type;
-    private double score;
+    private double score = -1;
 
     public int getId() {
         return id;

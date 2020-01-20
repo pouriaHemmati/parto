@@ -32,9 +32,9 @@
                 android:orientation="vertical"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintRight_toRightOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"></LinearLayout>
+                card_view:layout_constraintTop_toTopOf="parent" />
 
-            <com.unco.partobita.widgets.MyBoldTextView
+            <com.unco.parto.widgets.MyBoldTextView
                 android:id="@+id/custom_toast_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

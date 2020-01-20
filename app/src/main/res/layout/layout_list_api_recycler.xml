@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/layout_courses_search"
+    android:id="@+id/layout_list_api_recycler"
     android:layoutDirection="rtl"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="10dp"
@@ -51,7 +51,7 @@
                     >
 
                     <ImageView
-                        android:id="@+id/logo_courses_list_recycler"
+                        android:id="@+id/logo_list_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
@@ -89,22 +89,21 @@
 
                 <com.willy.ratingbar.ScaleRatingBar
                     android:id="@+id/simpleRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_30sdp"
                     app:layout_constraintLeft_toRightOf="@+id/lay_img_list_api_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/txt_rate_list_api_recycler"
                     app:layout_constraintBottom_toBottomOf="@+id/lay_img_list_api_recycler"
                     app:srb_numStars="5"
                     app:srb_minimumStars="1"
                     app:srb_rating="2"
-                    app:srb_starWidth="@dimen/_10sdp"
-                    app:srb_starHeight="@dimen/_10sdp"
-                    app:srb_starPadding="@dimen/_5sdp"
-                    app:srb_stepSize="0.5"
+                    app:srb_starWidth="@dimen/_8sdp"
+                    app:srb_starHeight="@dimen/_8sdp"
+                    app:srb_stepSize="0.4"
                     app:srb_isIndicator="false"
                     app:srb_clickable="false"
-                    app:srb_scrollable="true"
-                    app:srb_clearRatingEnabled="true"
+                    app:srb_scrollable="false"
+                    app:srb_clearRatingEnabled="false"
                     app:srb_drawableEmpty="@drawable/empty"
                     app:srb_drawableFilled="@drawable/filled">
                 </com.willy.ratingbar.ScaleRatingBar>
@@ -113,10 +112,11 @@
 
                 <com.unco.parto.widgets.MyMediumTextView
                     android:id="@+id/txt_type_list_api_recycler"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/lay_img_list_api_recycler"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="20dp"
