@@ -49,7 +49,7 @@ public class ListApi_RecyclerAdapter extends RecyclerView.Adapter<ListApi_Recycl
         ScaleRatingBar ratingBar = new ScaleRatingBar(BaseActivity.getContext());
 
 
-        public Picasso picasso;
+
 
 
         public ViewHolder(View itemView) {

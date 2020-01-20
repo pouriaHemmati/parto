@@ -12,4 +12,24 @@
         android:layout_margin="@dimen/_10sdp"
        />
 
+
+    <!-- loading -->
+    <RelativeLayout
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BA000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:theme="@style/loadingProgress"
+            />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
