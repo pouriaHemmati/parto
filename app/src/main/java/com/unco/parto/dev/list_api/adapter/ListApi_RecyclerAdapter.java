@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.unco.parto.R;
+import com.unco.parto.base.BaseActivity;
 import com.unco.parto.model.JListApi;
+import com.willy.ratingbar.ScaleRatingBar;
 
 import java.util.ArrayList;
 
@@ -43,8 +45,8 @@ public class ListApi_RecyclerAdapter extends RecyclerView.Adapter<ListApi_Recycl
         public TextView txt_type_list_api_recycler;
         public ImageView logo_list_recycler;
         public CardView layout_list_api_recycler;
-//        public  simpleRatingBar;
-
+        //        public  simpleRatingBar;
+        ScaleRatingBar ratingBar = new ScaleRatingBar(BaseActivity.getContext());
 
 
         public Picasso picasso;
@@ -57,9 +59,7 @@ public class ListApi_RecyclerAdapter extends RecyclerView.Adapter<ListApi_Recycl
             txt_type_list_api_recycler = (TextView) itemView.findViewById(R.id.txt_type_list_api_recycler);
             logo_list_recycler = (ImageView) itemView.findViewById(R.id.logo_list_recycler);
             layout_list_api_recycler = (CardView) itemView.findViewById(R.id.layout_list_api_recycler);
-
-
-
+            ratingBar = (ScaleRatingBar) itemView.findViewById(R.id.simpleRatingBar);
 
         }
 
@@ -90,11 +90,17 @@ public class ListApi_RecyclerAdapter extends RecyclerView.Adapter<ListApi_Recycl
             holder.txt_type_list_api_recycler.setText(jListApiArrayList.get(position).getType());
         }
         if (jListApiArrayList.get(position).getScore() != -1) {
+            double d = jListApiArrayList.get(position).getScore();
+            float f = (float)d;
+            holder.ratingBar.setRating(f/2);
             holder.txt_rate_list_api_recycler.setText(String.valueOf(jListApiArrayList.get(position).getScore()));
         }
 
-
-
+        if (jListApiArrayList.get(position).getPicture() != null) {
+            Picasso.with(BaseActivity.getContext())
+                    .load("https://play.hen-dev.ir/" + jListApiArrayList.get(position).getPicture())
+                    .into(holder.logo_list_recycler);
+        }
 
 
 
@@ -115,4 +121,4 @@ public class ListApi_RecyclerAdapter extends RecyclerView.Adapter<ListApi_Recycl
     }
 
 
-    }
+}
