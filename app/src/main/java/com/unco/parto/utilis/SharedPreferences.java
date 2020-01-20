@@ -91,6 +91,41 @@ public class SharedPreferences {
         return userNameAccount;
     }
 
+  //// password
+
+    private String infoPassword = "infoPassword";
+    private String password = "password";
+    private String passwordAccount = "passwordAccount";
+
+    public void savePassword() {
+        clearPassword();
+        android.content.SharedPreferences sharedPreferences = context.getSharedPreferences(infoPassword, Context.MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(password, passwordAccount);
+        editor.apply();
+    }
+
+    public void loadPassword() {
+        android.content.SharedPreferences sharedPreferences = context.getSharedPreferences(infoPassword, Context.MODE_PRIVATE);
+        this.userNameAccount = sharedPreferences.getString(password, "");
+    }
+
+    public void clearPassword() {
+        android.content.SharedPreferences sharedPreferences = context.getSharedPreferences(infoPassword, Context.MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(password);
+        editor.apply();
+    }
+
+
+    public void setPassword(String userKey) {
+        this.passwordAccount = userKey;
+    }
+
+    public String getPassword() {
+        return passwordAccount;
+    }
+
 
 
 

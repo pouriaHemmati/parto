@@ -89,7 +89,11 @@ public class LoginActivity extends BaseAppCompatActivity implements IloginView {
     @OnClick(R.id.btn_enter_login)
     public void btn_enter_login() {
         username = String.valueOf(edt_username_login.getText());
+        sharedPreferences.setUserName(username);
+        sharedPreferences.saveUserName();
         password = String.valueOf(edt_password_login.getText());
+        sharedPreferences.setPassword(password);
+        sharedPreferences.savePassword();
         if (!username.equals("")) {
             if (!password.equals("")) {
                 loading_login.setVisibility(View.VISIBLE);
