@@ -30,6 +30,7 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , OnI
     // page show
     private int pageShow = 1;
     ArrayList<JListApi> jListApiArrayList;
+    ArrayList<JListApi> jListApiArrayListLast;
     private boolean noList = false;
     private boolean FirstSearch = true;
     // recycler
@@ -104,10 +105,11 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , OnI
     // listener recycler
     private void recycler() {
         if (!FirstSearch){
-            this.jListApiArrayList.addAll(jListApiArrayList);
+            this.jListApiArrayListLast.addAll(jListApiArrayList);
             listApi_recyclerAdapter.notifyDataSetChanged();
         } else {
-            modelItemListApi = new ModelItemListApi(jListApiArrayList);
+            jListApiArrayListLast = jListApiArrayList;
+            modelItemListApi = new ModelItemListApi(jListApiArrayListLast);
             recyclerView = findViewById(R.id.recycler_view);
             listApi_recyclerAdapter = new ListApi_RecyclerAdapter(BaseActivity.getContext() , modelItemListApi , this);
             recyclerView.setLayoutManager(new LinearLayoutManager(BaseActivity.getContext() , LinearLayoutManager.VERTICAL , false));
