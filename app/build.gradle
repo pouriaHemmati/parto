@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions{
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -28,10 +32,10 @@ dependencies {
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
     //butterknife
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     //volley
-    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.android.volley:volley:1.1.1'
     // lottie
     implementation 'com.airbnb.android:lottie:3.3.0'
     // dimens
@@ -43,5 +47,5 @@ dependencies {
     //rating
     implementation 'com.github.ome450901:SimpleRatingBar:1.5.0'
     // recycler
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+//    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
