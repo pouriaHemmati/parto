@@ -32,6 +32,11 @@ public class PersonalPeresenter implements IPersonalPeresenter {
                 iPersonalView.errorPersonal(noResponse);
             }
 
+            @Override
+            public void errorTokenPersonal(String token) {
+                iPersonalView.errorTokenPersonal(token);
+            }
+
         });
     }
 }

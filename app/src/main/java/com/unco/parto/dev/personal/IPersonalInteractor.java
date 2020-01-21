@@ -11,6 +11,7 @@ public interface IPersonalInteractor {
     interface IPersonalFinishedListener {
         void successPersonal(JPersonal jPersonal);
         void errorPersonal(String noResponse);
+        void errorTokenPersonal(String token);
 
     }
 }

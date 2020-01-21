@@ -12,13 +12,19 @@ import com.squareup.picasso.Picasso;
 import com.unco.parto.R;
 import com.unco.parto.base.BaseActivity;
 import com.unco.parto.base.BaseAppCompatActivity;
+import com.unco.parto.dev.loging.IloginView;
+import com.unco.parto.dev.loging.LoginInteractor;
+import com.unco.parto.dev.loging.LoginPeresenter;
+import com.unco.parto.model.JLogin;
 import com.unco.parto.model.JPersonal;
+import com.unco.parto.utilis.SharedPreferences;
+import com.unco.parto.widgets.CustomToastMasseg;
 import com.willy.ratingbar.ScaleRatingBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Personal extends BaseAppCompatActivity implements IPersonalView{
+public class Personal extends BaseAppCompatActivity implements IPersonalView , IloginView {
     private String id = "-1";
     PersonalPeresenter personalPeresenter;
     @BindView(R.id.img_personal)
@@ -30,6 +36,9 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView{
     @BindView(R.id.txt_name_personal)
     TextView txt_name_personal;
     ScaleRatingBar ratingBar;
+    // load user and pass
+    SharedPreferences sharedPreferences;
+    LoginPeresenter loginPeresenter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +50,8 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView{
         ButterKnife.bind(this);
         ratingBar = new ScaleRatingBar(BaseActivity.getContext());
         ratingBar = (ScaleRatingBar) findViewById(R.id.simpleRatingBar_Personal);
+        sharedPreferences = SharedPreferences.getCashoutsSaveFilter();
+        loginPeresenter = new LoginPeresenter(this , new LoginInteractor());
         // get bundle
         Intent in = getIntent();
         Bundle content_search = in.getExtras();
@@ -72,6 +83,28 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView{
 
     @Override
     public void errorPersonal(String noResponse) {
+        CustomToastMasseg.showToastMessage(BaseActivity.getContext(), noResponse);
+    }
 
+    @Override
+    public void errorTokenPersonal(String token) {
+        CustomToastMasseg.showToastMessage(BaseActivity.getContext(),"درحال بروز رسانی اطلاعات لطفا صبر کنید");
+        sharedPreferences.loadUserName();
+        sharedPreferences.loadPassword();
+        loginPeresenter.callLogin(sharedPreferences.getUserName() , sharedPreferences.getPassword());
+    }
+
+    // get new token
+    @Override
+    public void successLogin(JLogin jLogin) {
+        sharedPreferences.setToken(jLogin.getToken());
+        sharedPreferences.saveToken();
+        CustomToastMasseg.showToastMessage(BaseActivity.getContext(),"به روز رسانی تکمیل شد");
+        personalPeresenter.callPersonal(Integer.valueOf(id));
+    }
+
+    @Override
+    public void errorLogin(String noResponse) {
+        CustomToastMasseg.showToastMessage(BaseActivity.getContext(),noResponse);
     }
 }

@@ -55,6 +55,9 @@ public class PersonalInteractor implements IPersonalInteractor {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         try {
+                            if (error.networkResponse.statusCode == 401){
+                                iPersonalFinishedListener.errorTokenPersonal("token");
+                            }
                             String responseBody = new String(error.networkResponse.data, "utf-8");
                             JSONObject data = new JSONObject(responseBody);
                             String message = data.getString("error");

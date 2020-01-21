@@ -117,7 +117,10 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , Ilo
     @Override
     public void successLogin(JLogin jLogin) {
         layout_loading.setVisibility(View.GONE);
+        sharedPreferences.setToken(jLogin.getToken());
+        sharedPreferences.saveToken();
         CustomToastMasseg.showToastMessage(BaseActivity.getContext(),"به روز رسانی تکمیل شد");
+        listApiPeresenter.callListApi(pageShow);
     }
 
     @Override
