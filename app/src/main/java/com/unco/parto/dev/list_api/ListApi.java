@@ -62,6 +62,7 @@ public class ListApi extends BaseAppCompatActivity implements IListApiView , Ilo
         loginPeresenter = new LoginPeresenter(this , new LoginInteractor());
         listApiPeresenter = new ListApiPeresenter(this ,new ListApiInteractor());
         listApiPeresenter.callListApi(pageShow);
+        layout_loading.setVisibility(View.VISIBLE);
 
 
         // recycler page

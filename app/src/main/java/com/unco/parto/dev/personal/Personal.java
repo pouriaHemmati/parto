@@ -3,7 +3,9 @@ package com.unco.parto.dev.personal;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -39,6 +41,9 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView , I
     // load user and pass
     SharedPreferences sharedPreferences;
     LoginPeresenter loginPeresenter;
+    // loading
+    @BindView(R.id.layout_loading)
+    RelativeLayout layout_loading;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,8 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView , I
         }
         personalPeresenter = new PersonalPeresenter(this, new PersonalInteractor());
         personalPeresenter.callPersonal(Integer.valueOf(id));
+        layout_loading.setVisibility(View.VISIBLE);
+
     }
 
     // response webservice
@@ -78,20 +85,26 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView , I
             txt_name_personal.setText(jPersonal.getName());
             txt_rate_personal.setText(String.valueOf(jPersonal.getScore()));
         }
+        layout_loading.setVisibility(View.GONE);
 
     }
 
     @Override
     public void errorPersonal(String noResponse) {
         CustomToastMasseg.showToastMessage(BaseActivity.getContext(), noResponse);
+        layout_loading.setVisibility(View.GONE);
+
     }
 
     @Override
     public void errorTokenPersonal(String token) {
+        layout_loading.setVisibility(View.GONE);
         CustomToastMasseg.showToastMessage(BaseActivity.getContext(),"درحال بروز رسانی اطلاعات لطفا صبر کنید");
         sharedPreferences.loadUserName();
         sharedPreferences.loadPassword();
         loginPeresenter.callLogin(sharedPreferences.getUserName() , sharedPreferences.getPassword());
+        layout_loading.setVisibility(View.VISIBLE);
+
     }
 
     // get new token
@@ -101,10 +114,19 @@ public class Personal extends BaseAppCompatActivity implements IPersonalView , I
         sharedPreferences.saveToken();
         CustomToastMasseg.showToastMessage(BaseActivity.getContext(),"به روز رسانی تکمیل شد");
         personalPeresenter.callPersonal(Integer.valueOf(id));
+        layout_loading.setVisibility(View.GONE);
+
     }
 
     @Override
     public void errorLogin(String noResponse) {
+        layout_loading.setVisibility(View.GONE);
         CustomToastMasseg.showToastMessage(BaseActivity.getContext(),noResponse);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

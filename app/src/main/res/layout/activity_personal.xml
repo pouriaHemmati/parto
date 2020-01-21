@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:text="asdasdasdasdasdas"
                 android:textColor="@color/colorBlack"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textSize="@dimen/_13sdp"
@@ -116,7 +115,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:textColor="@color/back_login"
-                android:text="sadasdasdasdasdasdasddasdasdasdasdasdasdas"
+
                 android:textSize="@dimen/_9sdp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -131,6 +130,26 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4"/>
+
+
+    <!-- loading -->
+    <RelativeLayout
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BA000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:theme="@style/loadingProgress"
+            />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
